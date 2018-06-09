@@ -5,7 +5,7 @@ export default class HeadTag extends Component {
   componentDidMount() {
     this.setState({ isClient: true });
 
-    const ssrTag = document.head.querySelector("[data-mh]");
+    const ssrTag = document.head.querySelector("[data-pht]");
     if (ssrTag) {
       ssrTag.remove();
     }
@@ -19,7 +19,7 @@ export default class HeadTag extends Component {
       );
     }
     if (this.context.head) {
-      this.context.head.add(<Tag data-mh {...rest} />);
+      this.context.head.add(<Tag data-pht {...rest} />);
     }
   }
 }
