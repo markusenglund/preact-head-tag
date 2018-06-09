@@ -1,7 +1,7 @@
 import { Component } from "preact";
 import renderToString from "preact-render-to-string";
 
-export default class HeadCollector extends Component {
+export class TagCollector extends Component {
   getChildContext() {
     return {
       head: {

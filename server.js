@@ -1,1 +1,1 @@
-module.exports = require("./dist/microhelmet-server.js");
+module.exports = require("./dist/server.js");

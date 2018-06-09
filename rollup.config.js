@@ -9,7 +9,7 @@ export default [
     output: {
       format: "cjs",
       dir: "dist",
-      file: "microhelmet.min.js",
+      file: "preact-head-tag.min.js",
       interop: false,
       strict: false,
       exports: "named"
@@ -30,7 +30,7 @@ export default [
     output: {
       format: "es",
       dir: "dist",
-      file: "microhelmet.esm.js"
+      file: "preact-head-tag.esm.js"
     },
     plugins: [
       buble({ jsx: "h", objectAssign: "Object.assign" }),
@@ -48,7 +48,7 @@ export default [
     output: {
       format: "cjs",
       dir: "dist",
-      file: "microhelmet-server.js"
+      file: "server.js"
     },
     plugins: [buble({ jsx: "h" })],
     external: ["preact", "preact-render-to-string"]
