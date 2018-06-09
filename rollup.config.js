@@ -14,6 +14,7 @@ export default [
     },
     plugins: [
       buble({ jsx: "h", objectAssign: "Object.assign" }),
+      uglify(),
       sizeSnapshot()
     ],
     external: ["preact", "preact-portal"]
@@ -23,7 +24,7 @@ export default [
     output: {
       format: "cjs",
       dir: "dist",
-      file: "server.js"
+      file: "microhelmet-server.js"
     },
     plugins: [buble({ jsx: "h" })],
     external: ["preact"]

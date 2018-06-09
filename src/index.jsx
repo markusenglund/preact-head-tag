@@ -3,16 +3,25 @@ import Portal from "preact-portal";
 
 // TODO: Look up screen reader integration
 export default class HeadTag extends Component {
-  render({ tag: Tag, ...rest }) {
-    if (this.context.head) {
-      this.context.head.add(<Tag data-microhelmet="" {...rest} />);
-    }
+  componentDidMount() {
+    this.setState({ isClient: true });
 
-    return (
-      <Portal into="head">
-        <Tag {...rest} />
-      </Portal>
-    );
+    const ssrTag = document.head.querySelector("[data-mh]");
+    if (ssrTag) {
+      ssrTag.remove();
+    }
+  }
+  render({ tag: Tag, ...rest }, { isClient }) {
+    if (isClient) {
+      return (
+        <Portal into="head">
+          <Tag {...rest} />
+        </Portal>
+      );
+    }
+    if (this.context.head) {
+      this.context.head.add(<Tag data-mh {...rest} />);
+    }
   }
 }
 
