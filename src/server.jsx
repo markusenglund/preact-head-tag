@@ -1,4 +1,4 @@
-import { h, Component } from "preact";
+import { Component } from "preact";
 import renderToString from "preact-render-to-string";
 
 export default class HeadCollector extends Component {

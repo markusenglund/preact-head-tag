@@ -1,4 +1,5 @@
 import buble from "rollup-plugin-buble";
+import { terser } from "rollup-plugin-terser";
 import { uglify } from "rollup-plugin-uglify";
 import { sizeSnapshot } from "rollup-plugin-size-snapshot";
 
@@ -10,11 +11,34 @@ export default [
       dir: "dist",
       file: "microhelmet.min.js",
       interop: false,
-      strict: false
+      strict: false,
+      exports: "named"
     },
     plugins: [
       buble({ jsx: "h", objectAssign: "Object.assign" }),
-      uglify(),
+      uglify({
+        mangle: {
+          toplevel: true
+        }
+      }),
+      sizeSnapshot()
+    ],
+    external: ["preact", "preact-portal"]
+  },
+  {
+    input: "src/index.jsx",
+    output: {
+      format: "es",
+      dir: "dist",
+      file: "microhelmet.esm.js"
+    },
+    plugins: [
+      buble({ jsx: "h", objectAssign: "Object.assign" }),
+      terser({
+        mangle: {
+          toplevel: true
+        }
+      }),
       sizeSnapshot()
     ],
     external: ["preact", "preact-portal"]
@@ -27,6 +51,6 @@ export default [
       file: "microhelmet-server.js"
     },
     plugins: [buble({ jsx: "h" })],
-    external: ["preact"]
+    external: ["preact", "preact-render-to-string"]
   }
 ];
