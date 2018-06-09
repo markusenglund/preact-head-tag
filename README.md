@@ -1,4 +1,6 @@
-A **0.5 kB** SSR-compatible head component for Preact.
+A very tiny SSR-compatible head component for Preact using preact-portal.
+
+It's around 1.5 kB including preact-portal and only ~500 bytes by itself.
 
 Heavily inspired by [react-head](https://github.com/tizmagik/react-head) by **tizmagic**.
 
@@ -55,6 +57,7 @@ const app = renderToString(
 );
 
 // Put the extracted headTags inside the head of the html.
+// headTags is an array of strings so use headTags.join("")
 res.send(`
   <!doctype html>
     <head>
