@@ -1,11 +1,15 @@
 {
   "name": "microhelmet",
   "version": "0.1.0",
-  "description": "A tiny ssr-compatible preact component for managing head using preact-portal",
+  "description": "A tiny ssr-compatible preact component for managing head with preact-portal",
   "main": "dist/microhelmet.min.js",
   "module": "dist/microhelmet.esm.js",
   "license": "MIT",
   "author": "Markus Englund <markus.s.englund@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markusenglund/microhelmet.git"
+  },
   "scripts": {
     "build": "rollup -c -w"
   },
@@ -23,5 +27,15 @@
     "rollup-plugin-size-snapshot": "^0.5.1",
     "rollup-plugin-terser": "^1.0.1",
     "rollup-plugin-uglify": "^4.0.0"
-  }
+  },
+  "keywords": [
+    "preact",
+    "head",
+    "preact-portal",
+    "ssr",
+    "helmet",
+    "title",
+    "meta",
+    "document"
+  ]
 }

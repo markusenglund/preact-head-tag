@@ -1,8 +1,6 @@
 import { h, Component } from "preact";
 import Portal from "preact-portal";
 
-// TODO: Look up screen reader integration
-// TODO: Somehow remove helper functions
 export default class HeadTag extends Component {
   componentDidMount() {
     this.setState({ isClient: true });
