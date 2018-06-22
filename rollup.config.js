@@ -1,7 +1,19 @@
 import buble from "rollup-plugin-buble";
+import babel from "rollup-plugin-babel";
 import { terser } from "rollup-plugin-terser";
 import { uglify } from "rollup-plugin-uglify";
 import { sizeSnapshot } from "rollup-plugin-size-snapshot";
+
+const plugins = [
+  buble({ jsx: "h", objectAssign: "Object.assign" }),
+  babel({ plugins: ["@babel/plugin-transform-object-assign"] }),
+  terser({
+    mangle: {
+      toplevel: true
+    }
+  }),
+  sizeSnapshot()
+];
 
 export default [
   {
@@ -14,15 +26,7 @@ export default [
       strict: false,
       exports: "named"
     },
-    plugins: [
-      buble({ jsx: "h", objectAssign: "Object.assign" }),
-      uglify({
-        mangle: {
-          toplevel: true
-        }
-      }),
-      sizeSnapshot()
-    ],
+    plugins,
     external: ["preact", "preact-portal"]
   },
   {
@@ -32,15 +36,7 @@ export default [
       dir: "dist",
       file: "preact-head-tag.esm.js"
     },
-    plugins: [
-      buble({ jsx: "h", objectAssign: "Object.assign" }),
-      terser({
-        mangle: {
-          toplevel: true
-        }
-      }),
-      sizeSnapshot()
-    ],
+    plugins,
     external: ["preact", "preact-portal"]
   },
   {
