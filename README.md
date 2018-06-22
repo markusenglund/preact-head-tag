@@ -52,7 +52,7 @@ const headTags = [];
 // Wrap you App component in the TagCollector
 const app = renderToString(
   <TagCollector headTags={headTags}>
-    <App store={store} url={req.url} />
+    <App />
   </TagCollector>
 );
 
