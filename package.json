@@ -1,6 +1,6 @@
 {
   "name": "preact-head-tag",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A tiny ssr-compatible preact component for managing head with preact-portal",
   "main": "dist/preact-head-tag.min.js",
   "module": "dist/preact-head-tag.esm.js",
